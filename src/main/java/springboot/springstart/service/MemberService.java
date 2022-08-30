@@ -10,7 +10,10 @@ import java.util.Optional;
 // service는 비즈니스 롤에 맞게끔 이름을 작성해주고, repository는 단순 기계식 작동에 맞게 명칭작성을 해주면됨.
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
