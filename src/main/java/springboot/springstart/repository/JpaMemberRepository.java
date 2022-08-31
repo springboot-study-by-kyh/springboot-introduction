@@ -16,7 +16,7 @@ public class JpaMemberRepository implements MemberRepository
     }
 
     @Override
-    public Member sava(Member member) {
+    public Member save(Member member) {
         em.persist(member);
         return member;
     }
@@ -29,7 +29,8 @@ public class JpaMemberRepository implements MemberRepository
 
     @Override
     public Optional<Member> findByName(String name) {
-        List<Member> result =  em.createQuery("select m from Member m where m.name = :name ", Member.class)
+
+        List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
         return result.stream().findAny();
@@ -39,6 +40,8 @@ public class JpaMemberRepository implements MemberRepository
     public List<Member> findAll() {
         return em.createQuery("select m from Member n", Member.class)
                 .getResultList();
+
+
 
     }
 

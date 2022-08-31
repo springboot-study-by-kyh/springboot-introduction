@@ -1,10 +1,8 @@
 package springboot.springstart.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import springboot.springstart.domain.Member;
 import springboot.springstart.repository.MemberRepository;
-import springboot.springstart.repository.MemoryMemberRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -34,7 +32,7 @@ public class MemberService {
             // 회원가입시 중복회원 불가.
             validateDuplicateMember(member);
 
-            memberRepository.sava(member);
+            memberRepository.save(member);
             return member.getId();
         } finally {
             long finish = System.currentTimeMillis();

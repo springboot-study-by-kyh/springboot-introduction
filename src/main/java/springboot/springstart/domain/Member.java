@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Member {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 를 DB가 알아서 생성해줌
     private Long id;
