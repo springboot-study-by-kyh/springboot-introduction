@@ -6,11 +6,12 @@ import springboot.springstart.domain.Member;
 import springboot.springstart.repository.MemberRepository;
 import springboot.springstart.repository.MemoryMemberRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 // service는 비즈니스 롤에 맞게끔 이름을 작성해주고, repository는 단순 기계식 작동에 맞게 명칭작성을 해주면됨.
-@Service
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
