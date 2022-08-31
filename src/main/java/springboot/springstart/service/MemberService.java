@@ -28,11 +28,21 @@ public class MemberService {
      */
     public Long join(Member member){
 
-        // 회원가입시 중복회원 불가.
-        validateDuplicateMember(member);
+        long start = System.currentTimeMillis();
 
-        memberRepository.sava(member);
-        return member.getId();
+        try {
+            // 회원가입시 중복회원 불가.
+            validateDuplicateMember(member);
+
+            memberRepository.sava(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long result = finish - start;
+            System.out.println("result : " + result);
+        }
+
+
     }
 
     // 검증로직을 method로 따로 빼서 사용
